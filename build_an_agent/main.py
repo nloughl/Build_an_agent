@@ -13,7 +13,8 @@ if response.usage_metadata:
     print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
     print(f"Response: {response.text}")
 else:
-    raise RuntimeError("API request liekly failed")
+    raise RuntimeError("API request likely failed")
+
 
 def main():
     print("Hello from build-an-agent!")
