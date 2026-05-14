@@ -11,7 +11,9 @@ def get_files_info(working_directory, directory="."):
             raise ValueError(f'Error: "{directory}" is not a directory')
         valid_path = os.path.commonpath([abs_path_wd, target_dir]) == abs_path_wd
         if not valid_path:
-            raise ValueError(f'Error: Cannot list "{directory}" as it is outside the permitted working directory')
+            raise ValueError(
+                f'Error: Cannot list "{directory}" as it is outside the permitted working directory'
+            )
         dir_contents = {}
         for object_name in os.listdir(target_dir):
             f = os.path.join(target_dir, object_name)
@@ -27,7 +29,3 @@ def get_files_info(working_directory, directory="."):
     for object_name, (size, is_dir) in dir_contents.items():
         final_res += f"- {object_name}: file_size={size} bytes, is_dir={is_dir}\n"
     return final_res
-
-
-# res = get_files_info("calculator", "pkg")
-# print(res)
